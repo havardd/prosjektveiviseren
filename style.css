@@ -21,7 +21,7 @@ h1 {
   z-index: 99; /* Sørg for at verktøytips er over andre elementer */
 }
 
-.blue-box, .green-box {
+.virksomhetsstyring, .prosjektstyring {
   position: relative; /* Posisjon for å sørge for at verktøytips fungerer riktig */
   margin: 0 10px; /* Horisontal marg */
   padding: 10px 20px; /* Polstring inni boksene */
@@ -35,11 +35,11 @@ h1 {
   touch-action: manipulation; /* Bedre berøringsinteraksjon */
 }
 
-.blue-box {
-  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
+.virksomhetsstyring {
+  background-color: #3498db; /* Lys blå bakgrunnsfarge */
 }
 
-.green-box {
+.prosjektstyring {
   background-color: #388e3c; /* Grønn bakgrunnsfarge */
 }
 
@@ -49,7 +49,7 @@ h1 {
   z-index: 1; /* Sørg for at linjen er bak verktøytips */
 }
 
-.line-container::before {
+.line-container::virksomhetsstyring {
   content: ""; /* Tomt innhold for pseudo-element */
   position: absolute; /* Absolutt posisjon */
   top: 0px; /* Topp posisjon */
@@ -60,7 +60,7 @@ h1 {
   z-index: 1; /* Sørg for at det er bak elementene */
 }
 
-.line-container::after {
+.line-container::prosjektstyring {
   content: ""; /* Tomt innhold for pseudo-element */
   position: absolute; /* Absolutt posisjon */
   top: 10px; /* Topp posisjon */
@@ -71,7 +71,7 @@ h1 {
   z-index: 1; /* Sørg for at det er bak elementene */
 }
 
-.timeline {
+.prosessmodell {
   display: flex; /* Bruk flexbox for layout */
   align-items: center; /* Sentrer elementene til toppen */
   justify-content: center; /* Sentrer elementer horisontalt */
@@ -82,11 +82,30 @@ h1 {
   border-radius: 10px; /* Runde hjørner */
   background-color: #ffffff; /* Hvit bakgrunn */
   position: relative; /* Posisjon for z-index å fungere */
-  z-index: 80; /* Sørg for at tidslinjen holder seg på plass */
+  z-index: 1; /* Sørg for at tidslinjen holder seg på plass */
   height: auto; /* Automatisk høyde */
 }
 
-.phase {
+.phase.ide { /*Ideboksen */
+  position: relative; /* Posisjon for z-index å fungere */
+  width: auto; /* Bredde på fasen */
+  height: auto; /* Automatisk høyde */
+  margin: 10px; /* Marg rundt fasen */
+  padding: 15px; /* Polstring inni fasen */
+  text-align: center; /* Sentrer tekst */
+  border-radius: 5px; /* Runde hjørner */
+  display: flex; /* Bruk flexbox for layout */
+  flex-direction: column; /* Juster elementer i en kolonne */
+  justify-content: center; /* Sentrer elementer vertikalt */
+  align-items: center; /* Sentrer elementer horisontalt */
+  color: white; /* Hvit tekst */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  background-color: #cccccc; /* Grå bakgrunn */
+  border: 2px solid gray; /* Grå kantlinje */
+  z-index: 90; /* Høyere z-index for lagdeling */
+}
+
+.phase.konsept {
   position: relative; /* Posisjon for z-index å fungere */
   width: 150px; /* Bredde på fasen */
   height: auto; /* Automatisk høyde */
@@ -98,82 +117,185 @@ h1 {
   flex-direction: column; /* Juster elementer i en kolonne */
   justify-content: center; /* Sentrer elementer vertikalt */
   align-items: center; /* Sentrer elementer horisontalt */
-  color: #222; /* Mørk grå tekst */
-  background-color: #eaeaea; /* Lys grå bakgrunn */
-  z-index: 90; /* Høyere z-index for lagdeling */
-  touch-action: manipulation; /* Bedre berøringsinteraksjon */
-}
-
-.phase p {
-  font-size: 12px; /* Skriftstørrelse for tekst */
-  margin: 5px 0; /* Vertikale marger */
-  z-index: 80; /* Høyere z-index for lagdeling */
-}
-
-.phase.blue {
-  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
-  border: 2px solid #add8e6; /* Lys blå kantlinje */
   color: white; /* Hvit tekst */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
+  border-color: #add8e6; /* Lys blå farge på rammen */
   z-index: 70; /* Høyere z-index for lagdeling */
 }
 
-.phase.green {
-  background-color: #388e3c; /* Grønn bakgrunnsfarge */
-  border: 2px solid #90ee90; /* Lys grønn kantlinje */
+.phase.planlegge {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 150px; /* Bredde på fasen */
+  height: auto; /* Automatisk høyde */
+  margin: 10px; /* Marg rundt fasen */
+  padding: 15px; /* Polstring inni fasen */
+  text-align: center; /* Sentrer tekst */
+  border-radius: 5px; /* Runde hjørner */
+  display: flex; /* Bruk flexbox for layout */
+  flex-direction: column; /* Juster elementer i en kolonne */
+  justify-content: center; /* Sentrer elementer vertikalt */
+  align-items: center; /* Sentrer elementer horisontalt */
   color: white; /* Hvit tekst */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  background-color: #93d796; /* Grønn bakgrunnsfarge */
+  border-color: #93d796; /* Grønn farge på rammen */
   z-index: 60; /* Høyere z-index for lagdeling */
 }
 
-.phase.ide { /*Ideboksen */
-  width: 80px; /* Mindre bredde */
-  height: 60px; /* Mindre høyde */
-  background-color: #cccccc; /* Grå bakgrunn */
-  border: 2px solid gray; /* Grå kantlinje */
-  border-radius: 5px; /* Runde hjørner */
+.phase.gjennomfore {
+  position: relative; /* Posisjon for z-index å fungere */
+  margin: 10px; /* Marg rundt fasen */
+  padding: 15px; /* Polstring inni fasen */
+  text-align: center; /* Sentrer tekst */
   display: flex; /* Bruk flexbox for layout */
-  align-items: center; /* Sentrer elementer vertikalt */
-  justify-content: center; /* Sentrer elementer horisontalt */
-  color: black; /* Svart tekst */
-  z-index: 90; /* Høyere z-index for lagdeling */
-}
-
-.phase.circle {
+  flex-direction: column; /* Juster elementer i en kolonne */
+  justify-content: center; /* Sentrer elementer vertikalt */
+  align-items: center; /* Sentrer elementer horisontalt */
+  color: white; /* Hvit tekst */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  background-color: #93d796; /* Grønn bakgrunnsfarge */
+  border-color: #93d796; /* Grønn farge på rammen */
   border-radius: 50%; /* Gjør det til en sirkel */
   width: 100px; /* Sirkelens bredde */
   height: 100px; /* Sirkelens høyde */
-  z-index: 80; /* Høyere z-index for lagdeling */
+  z-index: 50; /* Høyere z-index for lagdeling */
 }
 
-.arrow {
+.phase.avslutte {
   position: relative; /* Posisjon for z-index å fungere */
-  width: 40px; /* Pilens bredde */
-  height: 40px; /* Pilens høyde */
-  transform: rotate(45deg); /* Roter for å lage diamant */
-  background-color: inherit; /* Arv bakgrunnsfarge */
-  margin: 0 10px; /* Horisontale marger */
+  width: 150px; /* Bredde på fasen */
+  height: auto; /* Automatisk høyde */
+  margin: 10px; /* Marg rundt fasen */
+  padding: 15px; /* Polstring inni fasen */
+  text-align: center; /* Sentrer tekst */
   display: flex; /* Bruk flexbox for layout */
-  align-items: center; /* Sentrer elementer vertikalt */
-  justify-content: center; /* Sentrer elementer horisontalt */
-  position: relative; /* Posisjon for z-index å fungere */
-  z-index: 7; /* Høyere z-index for lagdeling */
-  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  flex-direction: column; /* Juster elementer i en kolonne */
+  justify-content: center; /* Sentrer elementer vertikalt */
+  align-items: center; /* Sentrer elementer horisontalt */
+  color: white; /* Hvit tekst */
   touch-action: manipulation; /* Bedre berøringsinteraksjon */
-  z-index: 70; /* Høyere z-index for lagdeling */
+  background-color: #93d796; /* Grønn bakgrunnsfarge */
+  border-color: #93d796; /* Grønn farge på rammen */
+  border-radius: 5px; /* Runde hjørner */
+  z-index: 40; /* Høyere z-index for lagdeling */
+}
+
+.phase.realisere {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 150px; /* Bredde på fasen */
+  height: auto; /* Automatisk høyde */
+  margin: 10px; /* Marg rundt fasen */
+  padding: 15px; /* Polstring inni fasen */
+  text-align: center; /* Sentrer tekst */
+  border-radius: 5px; /* Runde hjørner */
+  display: flex; /* Bruk flexbox for layout */
+  flex-direction: column; /* Juster elementer i en kolonne */
+  justify-content: center; /* Sentrer elementer vertikalt */
+  align-items: center; /* Sentrer elementer horisontalt */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
+  border-color: #add8e6; /* Lys blå farge på rammen */
+  color: white; /* Hvit tekst */
+  z-index: 30; /* Høyere z-index for lagdeling */
 }
 
 .arrow .number {
   transform: rotate(-45deg); /* Roter nummeret tilbake */
   color: white; /* Hvit tekst */
-  font-size: 14px; /* Skriftstørrelse for nummer */
+  font-size: 5px; /* Skriftstørrelse for nummer */
 }
 
-.arrow.light-green {
-  background-color: #388e3c; /* Grønn bakgrunnsfarge */
+.arrow.bp1 {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 10px; /* Pilens bredde */
+  height: 10px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: #3498db; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #3498db; /* Lys blå kantlinje */
+  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 190; /* Høyere z-index for lagdeling */
 }
 
-.arrow.light-blue {
-  background-color: #0056b3; /* Mørk blå bakgrunnsfarge */
-  z-index: 2; /* Høyere z-index for lagdeling */
+.arrow.bp2 {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 10px; /* Pilens bredde */
+  height: 10px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: #3498db; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #3498db; /* Lys blå kantlinje */
+  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 180; /* Høyere z-index for lagdeling */
+}
+
+.arrow.bp3 {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 10px; /* Pilens bredde */
+  height: 10px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: #388e3c; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #388e3c; /* Lys blå kantlinje */  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 170; /* Høyere z-index for lagdeling */
+}
+
+.arrow.bp4 {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 10px; /* Pilens bredde */
+  height: 10px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: #388e3c; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #388e3c; /* Lys blå kantlinje */  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 160; /* Høyere z-index for lagdeling */
+}
+
+.arrow.bp5 {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 10px; /* Pilens bredde */
+  height: 10px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: #388e3c; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #388e3c; /* Lys blå kantlinje */  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 1500; /* Høyere z-index for lagdeling */
+}
+
+.arrow.bp6 {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 10px; /* Pilens bredde */
+  height: 10px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: #3498db; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #3498db; /* Lys blå kantlinje */  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 140; /* Høyere z-index for lagdeling */
 }
 
 .tooltip .tooltiptext {
@@ -247,11 +369,6 @@ h1 {
     z-index: 13; /* Sørg for at det er bak elementene */
   }
 
-  .phase, .arrow {
-    margin: 8px 0; /* Vertikale marger */
-    z-index: 14; /* Høyere z-index for lagdeling */
-    touch-action: manipulation; /* Bedre berøringsinteraksjon */
-  }
 
   .tooltip .tooltiptext {
     top: calc(100% + 5px); /* Sentere verktøytips nedenfor */
@@ -273,4 +390,53 @@ h1 {
 
 .green-box, .phase.green {
   background-color: #90ee90; /* Lys grønn bakgrunnsfarge */
+}
+.tooltip .tooltiptext {
+  visibility: hidden; /* Skjul verktøytips som standard */
+  width: 200px; /* Verktøytips bredde */
+  background-color: #333; /* Mørk bakgrunn */
+  color: #fff; /* Hvit tekstfarge */
+  text-align: center; /* Sentrer tekst */
+  border-radius: 6px; /* Runde hjørner */
+  padding: 10px; /* Polstring innvendig */
+  position: absolute; /* Absolutt posisjon */
+  z-index: 1; /* Sørg for at verktøytips er over andre elementer */
+  top: calc(100% + 5px); /* Posisjoner under elementet */
+  left: 50%; /* Sentrer horisontalt */
+  transform: translateX(-50%); /* Juster posisjonen */
+  opacity: 0; /* Skjult som standard */
+  transition: opacity 0.3s; /* Fade-in effekt */
+  font-size: 14px; /* Standard skriftstørrelse */
+}
+
+/* Spesifikke stiler for virksomhetsstyring tooltip */
+
+.tooltip.virksomhetsstyring .tooltiptext .normal {
+  font-size: 10px; /* Skriftstørrelse for normal tekst */
+  display: block; /* Brukes for linjeskift */
+  margin-top: 10px; /* Avstand mellom tekst */
+}
+/* Spesifikke stiler for prosjektstyring tooltip */
+.tooltip.virksomhetsstyring .tooltiptext .highlighted {
+  font-size: 12px; /* Skriftstørrelse for uthevet tekst */
+  font-weight: bold; /* Fet skrift */
+}
+
+.tooltip.prosjektstyring .tooltiptext .normal {
+  font-size: 10px; /* Skriftstørrelse for normal tekst */
+  display: block; /* Brukes for linjeskift */
+  margin-top: 10px; /* Avstand mellom tekst */
+}
+
+/* Spesifikke stiler for prosjektstyring tooltip */
+.tooltip.prosjektstyring .tooltiptext .highlighted {
+  font-size: 12px; /* Skriftstørrelse for uthevet tekst */
+  font-weight: bold; /* Fet skrift */
+}
+
+/* Vis tooltip på hover */
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
+  visibility: visible; /* Vis verktøytips ved hover eller fokus */
+  opacity: 1; /* Fullstendig opak */
 }
