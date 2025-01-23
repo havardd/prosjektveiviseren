@@ -1,0 +1,276 @@
+body {
+  font-family: Arial, sans-serif; /* Angi fonten for kroppen */
+  text-align: center; /* Midtstill all tekst */
+  margin-top: 50px; /* Legg til toppmarg */
+  background-color: #f4f4f4; /* Angi en lys grå bakgrunnsfarge */
+  line-height: 1.6; /* Angi linjehøyden for bedre lesbarhet */
+  min-height: 100vh; /* Sørg for at siden tar opp minst hele visningsvinduets høyde */
+}
+
+h1 {
+  margin-bottom: 20px; /* Legg til bunnmarg */
+  color: #333; /* Angi skriftfargen */
+}
+
+.legend {
+  display: flex; /* Bruk flexbox for layout */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  align-items: center; /* Sentrer elementer vertikalt */
+  margin-bottom: 20px; /* Legg til bunnmarg */
+  position: relative; /* Posisjon for z-index å fungere */
+  z-index: 99; /* Sørg for at verktøytips er over andre elementer */
+}
+
+.blue-box, .green-box {
+  position: relative; /* Posisjon for å sørge for at verktøytips fungerer riktig */
+  margin: 0 10px; /* Horisontal marg */
+  padding: 10px 20px; /* Polstring inni boksene */
+  color: white; /* Tekstfarge */
+  border-radius: 5px; /* Runde hjørner */
+  text-align: center; /* Sentrer teksten */
+  cursor: pointer; /* Endre markøren til peker ved hover */
+  display: flex; /* Bruk flexbox for layout */
+  justify-content: center; /* Sentrer innhold horisontalt */
+  align-items: center; /* Sentrer innhold vertikalt */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+}
+
+.blue-box {
+  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
+}
+
+.green-box {
+  background-color: #388e3c; /* Grønn bakgrunnsfarge */
+}
+
+.line-container {
+  position: relative; /* Posisjon for z-index å fungere */
+  margin-bottom: 10px; /* Legg til bunnmarg */
+  z-index: 1; /* Sørg for at linjen er bak verktøytips */
+}
+
+.line-container::before {
+  content: ""; /* Tomt innhold for pseudo-element */
+  position: absolute; /* Absolutt posisjon */
+  top: 0px; /* Topp posisjon */
+  left: 10px; /* Venstre posisjon */
+  width: calc(100% - 20px); /* Breddeberegning */
+  height: 2px; /* Høyde på linjen */
+  background-color: #add8e6; /* Lys blå farge */
+  z-index: 1; /* Sørg for at det er bak elementene */
+}
+
+.line-container::after {
+  content: ""; /* Tomt innhold for pseudo-element */
+  position: absolute; /* Absolutt posisjon */
+  top: 10px; /* Topp posisjon */
+  left: calc((110% - 50px) / 7 * 2); /* Venstre posisjon beregning */
+  width: calc((160% - 50px) / 7 * 2); /* Breddeberegning */
+  height: 2px; /* Høyde på linjen */
+  background-color: #388e3c; /* Grønn farge */
+  z-index: 1; /* Sørg for at det er bak elementene */
+}
+
+.timeline {
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementene til toppen */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  flex-wrap: wrap; /* Pakk elementene om nødvendig */
+  overflow-x: auto; /* Tillat horisontal rulling */
+  border: 0; /* Fjern kantlinje */
+  padding: 20px; /* Polstring inni tidslinjen */
+  border-radius: 10px; /* Runde hjørner */
+  background-color: #ffffff; /* Hvit bakgrunn */
+  position: relative; /* Posisjon for z-index å fungere */
+  z-index: 80; /* Sørg for at tidslinjen holder seg på plass */
+  height: auto; /* Automatisk høyde */
+}
+
+.phase {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 150px; /* Bredde på fasen */
+  height: auto; /* Automatisk høyde */
+  margin: 10px; /* Marg rundt fasen */
+  padding: 15px; /* Polstring inni fasen */
+  text-align: center; /* Sentrer tekst */
+  border-radius: 5px; /* Runde hjørner */
+  display: flex; /* Bruk flexbox for layout */
+  flex-direction: column; /* Juster elementer i en kolonne */
+  justify-content: center; /* Sentrer elementer vertikalt */
+  align-items: center; /* Sentrer elementer horisontalt */
+  color: #222; /* Mørk grå tekst */
+  background-color: #eaeaea; /* Lys grå bakgrunn */
+  z-index: 90; /* Høyere z-index for lagdeling */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+}
+
+.phase p {
+  font-size: 12px; /* Skriftstørrelse for tekst */
+  margin: 5px 0; /* Vertikale marger */
+  z-index: 80; /* Høyere z-index for lagdeling */
+}
+
+.phase.blue {
+  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
+  border: 2px solid #add8e6; /* Lys blå kantlinje */
+  color: white; /* Hvit tekst */
+  z-index: 70; /* Høyere z-index for lagdeling */
+}
+
+.phase.green {
+  background-color: #388e3c; /* Grønn bakgrunnsfarge */
+  border: 2px solid #90ee90; /* Lys grønn kantlinje */
+  color: white; /* Hvit tekst */
+  z-index: 60; /* Høyere z-index for lagdeling */
+}
+
+.phase.ide { /*Ideboksen */
+  width: 80px; /* Mindre bredde */
+  height: 60px; /* Mindre høyde */
+  background-color: #cccccc; /* Grå bakgrunn */
+  border: 2px solid gray; /* Grå kantlinje */
+  border-radius: 5px; /* Runde hjørner */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  color: black; /* Svart tekst */
+  z-index: 90; /* Høyere z-index for lagdeling */
+}
+
+.phase.circle {
+  border-radius: 50%; /* Gjør det til en sirkel */
+  width: 100px; /* Sirkelens bredde */
+  height: 100px; /* Sirkelens høyde */
+  z-index: 80; /* Høyere z-index for lagdeling */
+}
+
+.arrow {
+  position: relative; /* Posisjon for z-index å fungere */
+  width: 40px; /* Pilens bredde */
+  height: 40px; /* Pilens høyde */
+  transform: rotate(45deg); /* Roter for å lage diamant */
+  background-color: inherit; /* Arv bakgrunnsfarge */
+  margin: 0 10px; /* Horisontale marger */
+  display: flex; /* Bruk flexbox for layout */
+  align-items: center; /* Sentrer elementer vertikalt */
+  justify-content: center; /* Sentrer elementer horisontalt */
+  position: relative; /* Posisjon for z-index å fungere */
+  z-index: 7; /* Høyere z-index for lagdeling */
+  cursor: pointer; /* Endre markøren til pekeren ved hover */
+  touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  z-index: 70; /* Høyere z-index for lagdeling */
+}
+
+.arrow .number {
+  transform: rotate(-45deg); /* Roter nummeret tilbake */
+  color: white; /* Hvit tekst */
+  font-size: 14px; /* Skriftstørrelse for nummer */
+}
+
+.arrow.light-green {
+  background-color: #388e3c; /* Grønn bakgrunnsfarge */
+}
+
+.arrow.light-blue {
+  background-color: #0056b3; /* Mørk blå bakgrunnsfarge */
+  z-index: 2; /* Høyere z-index for lagdeling */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden; /* Skjul verktøytips som standard */
+  width: 200px; /* Verktøytips bredde */
+  background-color: #333; /* Mørk bakgrunn */
+  color: #fff; /* Hvit tekstfarge */
+  text-align: center; /* Sentrer tekst */
+  border-radius: 6px; /* Runde hjørner */
+  padding: 5px; /* Polstring innvendig */
+  position: absolute; /* Absolutt posisjon */
+  z-index: 1; /* Sørg for at verktøytips er over andre elementer */
+  top: calc(100% + 5px); /* Posisjoner under elementet */
+  left: 50%; /* Sentrer horisontalt */
+  transform: translateX(-50%); /* Juster posisjonen */
+  opacity: 0; /* Skjult som standard */
+  transition: opacity 0.3s; /* Fade-in effekt */
+}
+
+.tooltip .tooltiptext::after {
+  content: ""; /* Tomt innhold for pseudo-element */
+  position: absolute; /* Absolutt posisjon */
+  top: -5px; /* Posisjoner pilen på toppen */
+  left: 50%; /* Sentrer horisontalt */
+  transform: translateX(-50%); /* Juster posisjonen */
+  border-width: 5px; /* Pilens størrelse */
+  border-style: solid; /* Solid kantbilde */
+  border-color: transparent transparent #333 transparent; /* Treklemens farge */
+}
+
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
+  visibility: visible; /* Vis verktøyetips ved hover eller fokus */
+  opacity: 1; /* Fullstendig opak */
+}
+
+.arrow .tooltiptext {
+  transform: translate(-50%, 0); /* Juster horisontal posisjon */
+  top: calc(100% + 5px); /* Posisjoner under pilen */
+  margin-top: 5px; /* Legg til marg til verktøytipsen */
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column; /* Stable elementer vertikalt */
+    align-items: center; /* Sentrer elementer horisontalt */
+    justify-content: flex-start; /* Juster elementer til starten */
+    position: relative; /* Posisjon for z-index å fungere */
+    padding: 10px; /* Polstring innvendig */
+  }
+
+  .line-container::before {
+    content: ""; /* Tomt innhold for pseudo-element */
+    position: absolute; /* Absolutt posisjon */
+    top: 0; /* Topp posisjon */
+    left: 10px; /* Venstre posisjon */
+    width: 2px; /* Linje bredde */
+    height: calc(100% - 40px); /* Høydeberegning */
+    background-color: #add8e6; /* Lys blå bakgrunn */
+    z-index: 12; /* Sørg for at det er bak elementene */
+  }
+
+  .line-container::after {
+    content: ""; /* Tomt innhold for pseudo-element */
+    position: absolute; /* Absolutt posisjon */
+    top: calc((100% - 80px) / 7 * 2); /* Topp posisjon beregning */
+    left: 10px; /* Venstre posisjon */
+    width: 2px; /* Linje bredde */
+    height: calc((100% - 120px) / 7 * 3); /* Høydeberegning */
+    background-color: #388e3c; /* Grønn bakgrunn */
+    z-index: 13; /* Sørg for at det er bak elementene */
+  }
+
+  .phase, .arrow {
+    margin: 8px 0; /* Vertikale marger */
+    z-index: 14; /* Høyere z-index for lagdeling */
+    touch-action: manipulation; /* Bedre berøringsinteraksjon */
+  }
+
+  .tooltip .tooltiptext {
+    top: calc(100% + 5px); /* Sentere verktøytips nedenfor */
+    left: 50%; /* Sentrer horisontalt */
+    transform: translateX(-50%); /* Juster horisontal posisjon */
+  }
+  
+  .arrow .tooltiptext {
+    top: calc(100% + 5px); /* Sentere verktøytips nedenfor */
+    left: 50%; /* Sentrer horisontalt */
+    transform: translateX(-50%); /* Juster horisontal posisjon */
+    margin-top: 0; /* Fjern toppmarg */
+  }
+}
+
+.blue-box, .phase.blue {
+  background-color: #add8e6; /* Lys blå bakgrunnsfarge */
+}
+
+.green-box, .phase.green {
+  background-color: #90ee90; /* Lys grønn bakgrunnsfarge */
+}
